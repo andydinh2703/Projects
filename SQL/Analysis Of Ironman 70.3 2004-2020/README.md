@@ -1,3 +1,9 @@
+# 🎯 Goals Of This Project
+- Practicing asking questions given the data set, and query data to answer.
+- Practicing working with data on database platform (**PostgreSQL**).
+- Applying things I have learned from Datacamp into real world data set.
+
+
 # 🔍 What is IRONMAN 70.3?
 
 
