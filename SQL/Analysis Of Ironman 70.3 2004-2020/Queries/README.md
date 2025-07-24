@@ -121,4 +121,53 @@ CREATE VIEW fastest_transition_winners AS
 SELECT *
 FROM fastest_transition_winners;
 ```
-- I originally looked for both fastest transition1 and transition 2 time, however, it might not be appropriate to do that. Instead, I changed to compare to the fastest total transition time. 
+- I originally looked for both fastest transition1 and transition 2 time, however, it might not be appropriate to do that. Instead, I changed to compare to the fastest total transition time.
+
+## 7. Does transition time actually make a difference in winning?
+```sql
+--> comparing winners' transition time with top 10 finishers' transition time
+CREATE VIEW transition_difference AS 
+	WITH top_10_finishers AS (
+		SELECT *
+		FROM ironman70_3_view
+		WHERE ranking BETWEEN 1 AND 10
+	),
+	avg_top10 AS ( 
+		SELECT 
+			location_,
+			event_year,
+			TO_CHAR(make_interval(secs => AVG(transition1_time)), 'HH24:MI:SS') AS avg_transition1,
+			TO_CHAR(make_interval(secs => AVG(transition2_time)), 'HH24:MI:SS') AS avg_transition2
+		FROM top_10_finishers
+		GROUP BY location_, event_year
+		ORDER BY event_year
+	)
+	SELECT w.gender,
+			w.country,
+			a.event_year,
+			a.location_,
+			w.transition1_duration,
+			a.avg_transition1,
+			w.transition2_duration,
+			a.avg_transition2
+	FROM all_winners AS w
+	LEFT JOIN avg_top10 AS a
+	ON w.location_ = a.location_;
+
+SELECT * 
+FROM transition_difference
+ORDER BY event_year;
+```
+## 8. Which country has the most winners? 
+```sql
+--> Which country has the most winners?
+CREATE VIEW winning_countries AS 
+	SELECT country, 
+		COUNT(*) AS num_winners
+	FROM all_winners
+	GROUP BY country;
+
+SELECT * 
+FROM winning_countries
+ORDER BY num_winners DESC;
+```
