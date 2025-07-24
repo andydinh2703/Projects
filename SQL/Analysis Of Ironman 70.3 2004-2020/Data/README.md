@@ -44,4 +44,15 @@ To enhance readability and facilitate further querying:
 
 - Converted all time-related columns from seconds to `HH24:MI:SS` format using `make_interval()` and `TO_CHAR()`.
 - Created a **view** (`ironman70_3_view`) to avoid altering the original dataset.
-  <img width="703" height="347" alt="Screenshot 2025-07-24 at 12 13 24 PM" src="https://github.com/user-attachments/assets/aafb65e0-163c-4a70-8406-3826062a39da" />
+```sql
+CREATE VIEW ironman70_3_view AS
+SELECT *,
+	TO_CHAR(make_interval(secs => swim_time), 'HH24:MI:SS') AS swim_duration,
+	TO_CHAR(make_interval(secs => transition1_time), 'HH24:MI:SS') AS transition1_duration,
+	TO_CHAR(make_interval(secs => bike_time), 'HH24:MI:SS') AS bike_duration,
+	TO_CHAR(make_interval(secs => transition2_time), 'HH24:MI:SS') AS transition2_duration,
+	TO_CHAR(make_interval(secs => run_time), 'HH24:MI:SS') AS run_duration,
+	TO_CHAR(make_interval(secs => finish_time), 'HH24:MI:SS') AS total_time,
+	RANK() OVER(PARTITION BY location_ ORDER By finish_time) As ranking,
+	TO_CHAR(make_interval(secs => AVG(finish_time) OVER(PARTITION BY gender, age_band, location_)), 'HH24:MI:SS') AS avg_finish_time
+FROM ironman70_3;
