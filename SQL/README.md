@@ -1,6 +1,6 @@
-# 📊 SQL Projects from DataCamp
+# 📊 SQL Projects
 
-Welcome to my SQL portfolio! This repository showcases a collection of SQL projects I've completed through DataCamp, 
+Welcome to my SQL portfolio! This repository showcases a collection of SQL projects I've completed through DataCamp and Kaggles' datasets, 
 where I’ve practiced essential data querying, analysis, and database management skills.
 
 ## 📁 Projects Overview
