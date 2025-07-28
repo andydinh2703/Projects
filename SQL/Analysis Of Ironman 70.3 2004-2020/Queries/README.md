@@ -1,5 +1,5 @@
 ## 1. What does a winning performance look like?
-- I would like to show the total time completing the race for each athlete, and the average time for each race accordingly.
+- I would like to show the total time completing the race for each winner, and the average time for each race accordingly.
 ```sql
 --> Average total time 
 CREATE VIEW avg_winning_time AS
