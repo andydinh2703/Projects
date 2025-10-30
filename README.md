@@ -55,5 +55,5 @@ General: 5 points
    - Documentation for configuring base paths in SvelteKit
 
 **LLM prompts**
-    - "I would like to deploy this project through Github. How would I do that? Please provide guidance step by step exlaining to help me learn to do it instead of just giving me code." 
+    - "I would like to deploy this project through Github. How would I do that? Please provide guidance step by step exlaining to help me learn to do it instead of just giving me code."
     - "I'm having problem with implementing localStorage as it needs to be reactive as well. Does Svelte have any unique way to solve it? If so, provide guidance with explaination of how things interact with each other and help me learn to do it next time."
