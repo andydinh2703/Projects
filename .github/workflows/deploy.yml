@@ -32,20 +32,6 @@ jobs:
         working-directory: ./my_own_blog
         run: npm ci
 
-      - name: Debug environment variables
-        working-directory: ./my_own_blog
-        env:
-          STRAVA_CLIENT_ID: ${{ secrets.STRAVA_CLIENT_ID }}
-          STRAVA_ATHLETE_ID: ${{ secrets.STRAVA_ATHLETE_ID }}
-          STRAVA_CLIENT_SECRET: ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: ${{ secrets.STRAVA_REFRESH_TOKEN }}
-        run: |
-          echo "STRAVA_CLIENT_ID is set: $([[ -n $STRAVA_CLIENT_ID ]] && echo 'yes' || echo 'no')"
-          echo "STRAVA_CLIENT_ID length: ${#STRAVA_CLIENT_ID}"
-          echo "STRAVA_ATHLETE_ID is set: $([[ -n $STRAVA_ATHLETE_ID ]] && echo 'yes' || echo 'no')"
-          echo "STRAVA_CLIENT_SECRET is set: $([[ -n $STRAVA_CLIENT_SECRET ]] && echo 'yes' || echo 'no')"
-          echo "STRAVA_REFRESH_TOKEN is set: $([[ -n $STRAVA_REFRESH_TOKEN ]] && echo 'yes' || echo 'no')"
-
       - name: Build
         working-directory: ./my_own_blog
         env:
