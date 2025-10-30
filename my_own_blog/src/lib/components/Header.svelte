@@ -2,6 +2,7 @@
 <script>
     import '$lib/styles/style.css';
     import logo from '$lib/assets/logo.png';
+    import { base } from '$app/paths';
 </script>
 
 <header>
@@ -9,8 +10,8 @@
     <img src={logo} alt="GO GET YOURS">
 
     <nav>
-        <a href="/">Home</a>
-        <a href="/blog">Blog</a> 
+        <a href="{base}/">Home</a>
+        <a href="{base}/blog">Blog</a>
     </nav>
-    
+
 </header>
