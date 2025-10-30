@@ -27,6 +27,12 @@ async function refreshAccessToken() {
   });
 
   const tokens = await response.json();
+
+  if (!response.ok) {
+    console.error('Token refresh failed:', tokens);
+    throw new Error(`Token refresh failed: ${JSON.stringify(tokens)}`);
+  }
+
   return tokens.access_token;
 }
 
@@ -41,7 +47,9 @@ async function getAthleteStats(accessToken: string): Promise<StravaStats> {
   );
 
   if (!response.ok) {
-    throw new Error('Failed to fetch stats');
+    const errorText = await response.text();
+    console.error('Strava API Error:', response.status, errorText);
+    throw new Error(`Failed to fetch stats: ${response.status} - ${errorText}`);
   }
 
   return await response.json();
