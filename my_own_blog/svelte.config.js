@@ -21,6 +21,9 @@ const config = {
 		}),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/Projects' : ''
+		},
+		prerender: {
+			origin: 'https://andydinh2703.github.io'
 		}
 	}
 };
