@@ -39,7 +39,7 @@ jobs:
           STRAVA_CLIENT_ID: = ${{ secrets.STRAVA_CLIENT_ID }}
           STRAVA_ATHLETE_ID: = ${{ secrets.STRAVA_ATHLETE_ID }}
           STRAVA_CLIENT_SECRET: = ${{ secrets.STRAVA_CLIENT_SECRET }}
-          STRAVA_REFRESH_TOKEN: = ${{ secrets.SSTRAVA_REFRESH_TOKEN }}
+          STRAVA_REFRESH_TOKEN: = ${{ secrets.STRAVA_REFRESH_TOKEN }}
         run: npm run build
 
       - name: Setup Pages
