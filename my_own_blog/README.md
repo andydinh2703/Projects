@@ -1,38 +1,59 @@
-# sv
+# Project 4 
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# Name
 
-## Creating a project
+Andy Dinh 
 
-If you're seeing this, you've probably already done this step. Congrats!
+# Project description 
+Building my own personal blog where I share my experience with triathlons. 
 
-```sh
-# create a new project in the current directory
-npx sv create
+# Features 
+Requirements: 10 points
 
-# create a new project in my-app
-npx sv create my-app
-```
+General: 5 points
 
-## Developing
+  - (+1): Includes at least two meaningful routes/pages (home / and blog /blog pages)
+  - (+4): Includes multiple meaningful and self-contained Svelte components (Header, Footer, Contacts, and Post components)
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+  Svelte features: 13 points
 
-```sh
-npm run dev
+  - (+2): Uses basic interpolation to render script variables throughout all components (e.g., {title}, {content},
+  {currentLike})
+  - (+2): Uses the $state() rune to make script variables reactive in Post.svelte (currentLike, hasLiked, initialized)
+  - (+2): Uses the $props() rune to pass data from parent to child in Post.svelte and blog page
+  - (+2): Uses TypeScript for all
+  - (+2): Includes a Svelte-style event handler directive with onclick={handleLike} in Post.svelte
+  - (+3): Includes advanced interpolation with {#if}, {:else if}, {:else} blocks in blog page for conditional rendering of
+  Strava stats
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+  SvelteKit features: 5 points
 
-## Building
+  - (+2): Uses at least one +layout.svelte component to handle shared UI elements (Header and Footer) between pages
+  - (+3): Uses a +page.server.ts script to pass custom data (Strava stats) to the blog page
 
-To create a production version of your app:
+  Advanced: 4 points
 
-```sh
-npm run build
-```
+  - (+4): Is deployed to GitHub pages using adapter-static with proper configuration
+  https://andydinh2703.github.io/Projects/
 
-You can preview the production build with `npm run preview`.
+# Sources
+- [MDN: Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
+- [Svelte 5 Docs: $effect](https://svelte-5-preview.vercel.app/docs/runes#$effect)
+- [SvelteKit Docs: browser](https://kit.svelte.dev/docs/modules#$app-environment-browser)
+- [BuildingBlog](https://joshcollinsworth.com/blog/build-static-sveltekit-markdown-blog)
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+**GitHub Pages Documentation**
+   - https://docs.github.com/en/pages/getting-started-with-github-pages
+   - Official GitHub Pages setup and configuration guide
+
+**GitHub Actions for Pages**
+   - https://github.com/actions/deploy-pages
+   - Official GitHub Action for deploying to GitHub Pages
+
+**SvelteKit Path Configuration**
+   - https://kit.svelte.dev/docs/configuration#paths
+   - Documentation for configuring base paths in SvelteKit
+
+**LLM prompts**
+  - "I would like to deploy this project through Github. How would I do that? Please provide guidance step by step exlaining to help me learn to do it instead of just           giving me code."
+  - "I'm having problem with implementing localStorage as it needs to be reactive as well. Does Svelte have any unique way to solve it? If so, provide guidance with explaination of how things interact with each other and help me learn to do it next time."
